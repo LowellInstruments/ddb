@@ -11,13 +11,21 @@ db = OUTPUT_DATABASE_FILE
 t = OUTPUT_DATABASE_TABLE
 
 
+def main_erase():
+    print('\nrunning main_erase()')
+    table_delete(db, t)
+
+
 def main_write():
+    print('\nrunning main_write()')
+
+    # so we don't create duplicates
+    main_erase()
 
     # get today's number of day in year
     ndy = datetime.now().timetuple().tm_yday
     print('today is day # {} of the year'.format(ndy))
 
-    table_delete(db, t)
     table_create(db, t)
 
     wildcard = '{}/{}'.format(FOLDER_VALUES, MASK_FILES_VALUES)
@@ -32,6 +40,7 @@ def main_write():
 
 
 def main_read():
+    print('\nrunning main_read()')
     day = 37
     lat = 36.8
     lon = -74.9
@@ -42,4 +51,4 @@ def main_read():
 
 if __name__ == '__main__':
     main_write()
-    # main_read()
+    main_read()

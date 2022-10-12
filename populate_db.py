@@ -33,7 +33,7 @@ def table_query(db, t, day, lat, lon):
         return
 
     assert len(rows) == 1
-    s = 'the value for day #{} at ({},{}) was {}'
+    s = 'value for day #{} at ({},{}) = {}'
     v = rows[0][4]
     print(s.format(day, lat, lon, v))
     return v
