@@ -2,4 +2,4 @@ venv_ddb/
 bt.db
 *.db
 __pycache__/
-
+.idea/
